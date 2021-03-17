@@ -1,2 +1,13 @@
 <h1>Create New Feed</h1>
 <p>Enter the RSS url below to create a corrected feed.</p>
+
+<%= form_for(Feed.new) do |f| %>
+        <%= f.label :title, "Title" %>
+        <%= f.text_field :title %>
+
+
+        <%= f.label :url, "URL for rss feed" %>
+        <%= f.text_field :url %>
+
+        <%= f.submit "Add Podcast" %>
+<% end %>

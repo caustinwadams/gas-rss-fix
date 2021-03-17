@@ -30,3 +30,7 @@
   .row {
     display: flex;
   }
+
+  form {
+    margin: 0 auto;
+  }
