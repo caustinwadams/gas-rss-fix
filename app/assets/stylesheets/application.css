@@ -18,6 +18,15 @@
     text-align: center;
  }
 
- h1 {
+ h1, h2, h3 {
     text-align: center;
  }
+
+ .column {
+    flex: 50%;
+  }
+  
+  /* Clear floats after the columns */
+  .row {
+    display: flex;
+  }
