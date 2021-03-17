@@ -1,7 +1,7 @@
 require 'open-uri'
 
 class FeedsController < ApplicationController
-  http_basic_authenticate_with name: "austin", password: "password", only: :show
+  #http_basic_authenticate_with name: "austin", password: "password", only: :show
 
   def index
   end
