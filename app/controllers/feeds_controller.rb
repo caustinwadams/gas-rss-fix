@@ -18,7 +18,7 @@ class FeedsController < ApplicationController
 
     begin
       old_feed = open(@feed.url, :http_basic_authentication=>["austin11793","Manwax12!"]).read
-      @feed.new_feed = old_feed.gsub("&amp;", "&")
+      @feed.new_feed = old_feed # .gsup("&amp;", "&")
 
       if @feed.save
         flash[:success] = "Feed added"
