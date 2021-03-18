@@ -41,7 +41,7 @@ class FeedsController < ApplicationController
           url_old = $1
           len_old = url_old.length
           ep_end = ep_start + len_old - 1
-          url_new = url_old.gsub("&amp;", "&")
+          url_new = url_old.gsub("&amp;", "&amp;amp;")
     
           episode[ep_start..ep_end] = url_new
         end
