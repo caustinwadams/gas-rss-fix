@@ -1,13 +1,13 @@
 <h1>Feeds</h1>
 <p>Corrected feeds for all GaS Digital shows.</p>
 
-<%= Feed.all.each do |f| %>
+<% Feed.all.each do |f| %>
     <div class="row">
         <div class="column">
-            <h2><%= feed.title %></h2>
+            <h2><%= f.title %></h2>
         </div>
         <div class="column">
-            <h3><%= link_to "Feed", feed %></h3>
+            <h3><%= link_to "Feed", f %></h3>
         </div>
     </div>
 <% end %>
