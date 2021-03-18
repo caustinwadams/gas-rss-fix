@@ -27,8 +27,8 @@ class FeedsController < ApplicationController
 
     begin
       old_feed = open(@feed.url, :http_basic_authentication=>["austin11793","Manwax12!"]).read
-
-      i_start = (old_feed =~ start_reg)
+      @feed.new_feed = old_feed
+      =begin i_start = (old_feed =~ start_reg)
       i_end   = (old_feed =~ end_reg) + 6
 
       new_feed = old_feed[0...i_start]
@@ -66,7 +66,7 @@ class FeedsController < ApplicationController
       end
 
       new_feed += "</channel>\n</rss>"
-      @feed.new_feed = new_feed
+      @feed.new_feed = new_feed =end
 
       if @feed.save
         flash[:success] = "Feed added"
