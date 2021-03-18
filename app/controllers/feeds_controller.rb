@@ -66,8 +66,8 @@ class FeedsController < ApplicationController
       end
 
       new_feed += "</channel>\n</rss>"
-      @feed.new_feed = new_feed
-      
+      @feed.new_feed = new_feed.strip
+
       if @feed.save
         flash[:success] = "Feed added"
       else
