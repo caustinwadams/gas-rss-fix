@@ -51,7 +51,7 @@ class FeedsController < ApplicationController
           gui_old =  $1
           len_old = gui_old.length
           ep_end = ep_start + len_old - 1
-          gui_new = gui_old.gsub("&amp;", "&")
+          gui_new = gui_old.gsub("&amp;", "&amp;amp;")
     
           episode[ep_start..ep_end] = gui_new
         end
@@ -66,7 +66,7 @@ class FeedsController < ApplicationController
       end
 
       new_feed += "</channel>\n</rss>"
-      @feed.new_feed = " #{new_feed} "
+      @feed.new_feed = new_feed
 
       if @feed.save
         flash[:success] = "Feed added"
