@@ -28,45 +28,45 @@ class FeedsController < ApplicationController
     begin
       old_feed = open(@feed.url, :http_basic_authentication=>["austin11793","Manwax12!"]).read
       @feed.new_feed = old_feed
-      =begin i_start = (old_feed =~ start_reg)
-      i_end   = (old_feed =~ end_reg) + 6
+      #i_start = (old_feed =~ start_reg)
+      #i_end   = (old_feed =~ end_reg) + 6
 
-      new_feed = old_feed[0...i_start]
+      #new_feed = old_feed[0...i_start]
       
-      while i_start and i_end
-        episode = old_feed[i_start..i_end]
+      #while i_start and i_end
+      #  episode = old_feed[i_start..i_end]
     
-        if episode =~ url_reg
-          ep_start = (episode =~ url_reg) + 5
-          url_old = $1
-          len_old = url_old.length
-          ep_end = ep_start + len_old - 1
-          url_new = url_old.gsub("&amp;", "&amp;amp;")
+      #  if episode =~ url_reg
+      #    ep_start = (episode =~ url_reg) + 5
+      #    url_old = $1
+      #    len_old = url_old.length
+      #    ep_end = ep_start + len_old - 1
+      #    url_new = url_old.gsub("&amp;", "&amp;amp;")
     
-          episode[ep_start..ep_end] = url_new
-        end
+      #    episode[ep_start..ep_end] = url_new
+      #  end
     
-        if episode =~ gui_reg
-          ep_start = (episode =~ gui_reg) + 6
-          gui_old =  $1
-          len_old = gui_old.length
-          ep_end = ep_start + len_old - 1
-          gui_new = gui_old.gsub("&amp;", "&amp;amp;")
+      #  if episode =~ gui_reg
+      #    ep_start = (episode =~ gui_reg) + 6
+      #    gui_old =  $1
+      #    len_old = gui_old.length
+      #    ep_end = ep_start + len_old - 1
+      #    gui_new = gui_old.gsub("&amp;", "&amp;amp;")
     
-          episode[ep_start..ep_end] = gui_new
-        end
+      #    episode[ep_start..ep_end] = gui_new
+      #  end
     
-        new_feed += "#{episode}\n"
+      #  new_feed += "#{episode}\n"
     
-        old_feed = old_feed[i_end..-1]
-        i_start = (old_feed =~ start_reg)
-        if i_start
-          i_end   = (old_feed =~ end_reg) + 6
-        end
-      end
+      #  old_feed = old_feed[i_end..-1]
+      #  i_start = (old_feed =~ start_reg)
+      #  if i_start
+      #    i_end   = (old_feed =~ end_reg) + 6
+      #  end
+      #end
 
-      new_feed += "</channel>\n</rss>"
-      @feed.new_feed = new_feed =end
+      #new_feed += "</channel>\n</rss>"
+      #@feed.new_feed = new_feed
 
       if @feed.save
         flash[:success] = "Feed added"
